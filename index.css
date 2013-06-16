@@ -1,0 +1,38 @@
+body {
+	width: 600px;
+	margin: 20px auto;
+}
+
+
+h1 {
+	font-size: 23px;
+	font-weight: normal;
+
+}
+
+h2 {
+	color: rgb(102, 102, 102);
+	font-size: 14px;
+	height: 14px;
+	font-family: serif;
+	color: black;
+}
+
+h4  {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	height: auto;
+	line-height: 12px;
+	text-align: left;
+}
+
+p {
+	display: block;
+	font-family: georgia, 'times new roman', times, serif;
+	font-size: 15px;
+	line-height: 22px;
+	text-align: left;
+	visibility: visible;
+	width: 600px;
+}
