@@ -1,0 +1,43 @@
+body {
+	width: 600px;
+	margin: 20px auto;\
+	color: white;
+	background-color: black;
+}
+
+
+h1 {
+	font-size: 23px;
+	font-weight: normal;
+	color: white;
+	text-align: center;
+
+}
+
+h2 {
+	font-size: 14px;
+	height: 14px;
+	font-family: serif;
+	color: white;
+	text-align: center;
+}
+
+h4  {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	height: auto;
+	line-height: 12px;
+	text-align: left;
+}
+
+p {
+	display: block;
+	font-family: georgia, 'times new roman', times, serif;
+	font-size: 15px;
+	line-height: 22px;
+	text-align: center;
+	visibility: visible;
+	width: 600px;
+	color: white;
+}
