@@ -12,16 +12,6 @@
   stroke-linejoin: round;
 }
 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
-
 </style>
 <body>
 <p>Is this thing on???</p>
@@ -35,9 +25,9 @@ var width = 960,
 
 var rateById = d3.map();
 
-var quantize = d3.scale.quantize()
-    .domain([1, 109])
-    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+var color = d3.scale.threshold()
+    .domain([1, 10, 25, 50, 70])
+    .range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
 
 var path = d3.geo.path();
 
