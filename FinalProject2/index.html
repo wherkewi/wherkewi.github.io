@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+/*whole page*/
+body {
+width:900px;
+margin:20px auto;
+font-family: georgia, sans-serif;
+font-size:15px;
+line-height:1.4em;
+}
+h2{
+    text-align:center;
+}
+p{
+    padding-left:10px;
+}
+ 
+.readin {
+width:900px;
+}
+/* this css applies to BOTH maps*/
+
+
+.states {
+fill: none;
+stroke: #fff;
+stroke-linejoin: round;
+}
+ 
+.counties {
+fill:#f0f0f0;
+}
+ 
+.legend-title {
+text-align: left;
+margin-bottom: 8px;
+font-weight: bold;
+font-size: 90%;
+text-align:center;
+}
+.legend-scale ul {
+margin: 0;
+margin-left: 160px;
+float: left;
+list-style: none;
+}
+.legend-scale ul li {
+display: block;
+float: left;
+width: 50px;
+margin-bottom: 6px;
+text-align: center;
+font-size: 80%;
+list-style: none;
+}
+ul.legend-labels li span {
+display: block;
+float: left;
+height: 15px;
+width: 50px;
+}
+.legend-source {
+font-size: 70%;
+color: #999;
+clear: both;
+}
+
+/*COLD colors*/
+.cold-section .q0-9 { fill:rgb(158,202,225); }
+.cold-section .q1-9 { fill:rgb(107,174,214); }
+.cold-section .q2-9 { fill:rgb(66,146,198); }
+.cold-section .q3-9 { fill:rgb(33,113,181); }
+.cold-section .q4-9 { fill:rgb(8,81,156); }
+.cold-section .q5-9 { fill:rgb(8,48,107); }
+.cold-section .q6-9 { fill:rgb(6,37,83); }
+.cold-section .q7-9 { fill:rgb(4,27,60); }
+.cold-section .q8-9 { fill:rgb(3,16,36); }
+	
+/*HOT colors*/
+.hq0-9 { fill:#f2f0f7; }
+.hq1-9 { fill:#dadaeb; }
+.hq2-9 { fill:#bcbddc; }
+.hq3-9 { fill:#9e9ac8; }
+.hq4-9 { fill:#756bb1; }
+.hq5-9 { fill:#54278f; }
+.hq6-9 { fill:#381A5f; }
+.hq7-9 { fill:#1c0d2f; }
+.hq8-9 { fill:#000000; }
+
+ 
+</style>
+ 
+<body>
+ <br></br>
+<h1 style="text-align:center;">Record-Breaking Hot and Cold Days Across the USA</h1>
+<h2>Part 2</h2>
+<p> I started to wonder why all the record hot and cold temperatures happened (not just in specific regions) but <em>in all the big looking counties</em>.Was there a bias in my data?</p>
+<p>I decided to investigate the apparent relationship between large counties and high/low temperature records. Below is a graph of strictly the county sizes.</p>
+
+<div class="hot-section">
+<h2>Maping the County Sizes</h2>
+<div class='my-legend'>
+<div class='legend-title'>Area of Counties</div>
+<div class='legend-scale'>
+<ul class='legend-labels'>
+
+    <li><span style='background:#f2f0f7;'></span>Smallest</li>
+    <li><span style='background:#dadaeb;'></span></li>
+    <li><span style='background:#bcbddc;'></span></li>
+    <li><span style='background:#9e9ac8;'></span></li>
+    <li><span style='background:#756bb1;'></span></li>
+	<li><span style='background:#54278f;'></span></li>
+    <li><span style='background:#381A5f;'></span></li>
+    <li><span style='background:#1c0d2f;'></span></li>
+    <li><span style='background:#000000;'></span>Largest</li>
+</ul>
+</div>
+</div>
+</div>
+<br></br>
+<p>Oh crap. This looks way too much like my map of hot temperatures. There’s the weird pattern of the Southwest, Northwest, and north New England. Clearly there is something going on here with how the record temperatures are taken. Maybe all of the 11,000 nationwide temperature stations <em>aren’t</em> evenly distributed, something I hadn’t thought about.
+<p>What would a graph of the 11,000 stations look like?</p>
+<br></br>
+<div class="cold-section">
+<h2>Mapping the Weather Stattions</h2>
+<div class='my-legend'>
+<div class='legend-title'>Number of Weather Stations Per County</div>
+<div class='legend-scale'>
+<ul class='legend-labels'>
+ <li><span style='background:#d8d8d8;'></span>0</li>
+    <li><span style='background:rgb(158,202,225);'></span>1-2</li>
+    <li><span style='background:rgb(107,174,214);'></span>3-4</li>
+    <li><span style='background:rgb(66,146,198);'></span>5-6</li>
+    <li><span style='background:rgb(33,113,181);'></span>7-8</li>
+    <li><span style='background:rgb(8,81,156);'></span>9-10</li>
+	<li><span style='background:rgb(8,48,107);'></span>11-12</li>
+    <li><span style='background:rgb(6,37,83);'></span>13-14</li>
+    <li><span style='background:rgb(4,27,60);'></span>15-16</li>
+    <li><span style='background:rgb(3,16,36);'></span>17+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<p>Ah ha! This is the root of my problem</p>
+<p>Imagine that Maricopa County, Arizona has a record hot day at the same time as Alleghany County, North Carolina. Maricopa is the proud owner of 23 separate weather stations, while Alleghany has only 1. So Though, from the population's perspective, each "had a really hot day," Maricopa County will count 23 times the records.</p>
+<p>I’ll have to normalize my data.</p>
+
+
+
+<!-- note you need to load these only once -->
+ 
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+ 
+ 
+ 
+<script>
+ 
+// this applies to BOTH
+var width = 960,
+height = 500;
+ 
+var path = d3.geo.path();
+ 
+ 
+// this is code for the COLD map --------------
+ 
+var rateById = d3.map();
+ 
+var quantize = d3.scale.quantize()
+.domain([0, 18])
+.range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+ 
+var coldSvg = d3.select(".cold-section").append("svg")
+.attr("width", width)
+.attr("height", height);
+ 
+// hot map
+var hotRateById = d3.map();
+ 
+var hotQuantize = d3.scale.quantize()
+.domain([0, 6500])
+.range(d3.range(9).map(function(i) { return "hq" + i + "-9"; }));
+ 
+var hotSvg = d3.select(".hot-section").append("svg")
+.attr("width", width)
+.attr("height", height);
+ 
+ 
+queue()
+.defer(d3.json, "us.json")
+.defer(d3.tsv, "cold-data.tsv", function(d) { rateById.set(d.id, +d.rate); })
+.defer(d3.tsv, "warm-data.tsv", function(d) { hotRateById.set(d.id, +d.rate); })
+.await(ready);
+ 
+// this function fires ONCE, once all your data is loaded.
+function ready(error, us) {
+ 
+ 
+// make a cold map -----
+coldSvg.append("g")
+.attr("class", "counties")
+.selectAll("path")
+.data(topojson.feature(us, us.objects.counties).features)
+.enter().append("path")
+.attr("class", function(d) { return quantize(rateById.get(d.id)); })
+.attr("d", path);
+ 
+coldSvg.append("path")
+.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+.attr("class", "states")
+.attr("d", path);
+ 
+ 
+// make a hot map
+hotSvg.append("g")
+.attr("class", "counties")
+.selectAll("path")
+.data(topojson.feature(us, us.objects.counties).features)
+.enter().append("path")
+.attr("class", function(d) { return hotQuantize(hotRateById.get(d.id)); })
+.attr("d", path);
+ 
+hotSvg.append("path")
+.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+.attr("class", "states")
+.attr("d", path);
+ 
+}
+ 
+ 
+ 
+ 
+ 
+// var coldrateById = d3.map();
+ 
+// var quantize = d3.scale.quantize()
+// .domain([0, 54])
+// .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+ 
+// var path = d3.geo.path();
+ 
+// var svg = d3.select("body").append("svg")
+// .attr("width", width)
+// .attr("height", height);
+ 
+// queue()
+// .defer(d3.json, "us.json")
+// .defer(d3.tsv, "unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
+// .await(ready);
+ 
+// function ready(error, us) {
+// svg.append("g")
+// .attr("class", "counties")
+// .selectAll("path")
+// .data(topojson.feature(us, us.objects.counties).features)
+// .enter().append("path")
+// .attr("class", function(d) { return quantize(rateById.get(d.id)); })
+// .attr("d", path);
+ 
+// svg.append("path")
+// .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+// .attr("class", "states")
+// .attr("d", path);
+// }
+ 
+ 
+ 
+ 
+ 
+ 
+</script>
+</body>

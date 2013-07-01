@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+/*whole page*/
+body {
+width:900px;
+margin:20px auto;
+font-family: georgia, sans-serif;
+font-size:15px;
+line-height:1.4em;
+}
+h2{
+    text-align:center;
+}
+p{
+    padding-left:10px;
+}
+ 
+.readin {
+width:900px;
+}
+/* this css applies to BOTH maps*/
+
+
+.states {
+fill: none;
+stroke: #fff;
+stroke-linejoin: round;
+}
+ 
+.counties {
+fill:#f0f0f0;
+}
+ 
+.legend-title {
+text-align: left;
+margin-bottom: 8px;
+font-weight: bold;
+font-size: 90%;
+text-align:center;
+}
+.legend-scale ul {
+margin: 0;
+margin-left: 180px;
+float: left;
+list-style: none;
+}
+.legend-scale ul li {
+display: block;
+float: left;
+width: 50px;
+margin-bottom: 6px;
+text-align: center;
+font-size: 80%;
+list-style: none;
+}
+ul.legend-labels li span {
+display: block;
+float: left;
+height: 15px;
+width: 50px;
+}
+.legend-source {
+font-size: 70%;
+color: #999;
+clear: both;
+}
+
+/*COLD colors*/
+.cold-section .q0-9 { fill:rgb(158,202,225); }
+.cold-section .q1-9 { fill:rgb(107,174,214); }
+.cold-section .q2-9 { fill:rgb(66,146,198); }
+.cold-section .q3-9 { fill:rgb(33,113,181); }
+.cold-section .q4-9 { fill:rgb(8,81,156); }
+.cold-section .q5-9 { fill:rgb(8,48,107); }
+.cold-section .q6-9 { fill:rgb(6,37,83); }
+.cold-section .q7-9 { fill:rgb(4,27,60); }
+.cold-section .q8-9 { fill:rgb(3,16,36); }
+ 
+/*HOT colors*/
+.hq0-9 { fill:rgb(254,140,140); }
+.hq1-9 { fill:rgb(253,63,63); }
+.hq2-9 { fill:rgb(253,24,24); }
+.hq3-9 { fill:rgb(235,2,2); }
+.hq4-9 { fill:rgb(196,2,2); }
+.hq5-9 { fill:rgb(157,2,2); }
+.hq6-9 { fill:rgb(118,1,1); }
+.hq7-9 { fill:rgb(79,1,1); }
+.hq8-9 { fill:rgb(41,0,0); }
+
+ 
+</style>
+ 
+<body>
+ <br></br>
+<h1 style="text-align:center;">Record-Breaking Hot and Cold Days Across the USA</h1>
+<h2>Part 3</h2>
+<p>Because I didn't think I could cull the weather stations down to a single county representative, and because a day-by-day approach (conglomerating daily county data into a single record of hot or cold temperature) involved cherry picking between mismatching data, I decided the best approach would to be to just average everything.</p>
+<p>Below are my maps of each county’s record-breaking hot and cold days, divided by its number of weather stations.</p>
+
+
+
+<div class="hot-section">
+<h2>Some like it Hot(ish)</h2>
+<div class='my-legend'>
+<div class='legend-title'>Record-Breaking Hot Days Since 2000 per Weather Station</div>
+<div class='legend-scale'>
+<ul class='legend-labels'>
+    <li><span style='background:#d8d8d8;'></span>0</li>
+    <li><span style='background:rgb(254,140,140);'></span>0.1-0.5</li>
+    <li><span style='background:rgb(253,63,63);'></span>0.6-1</li>
+    <li><span style='background:rgb(253,24,24);'></span>1.1-1.5</li>
+    <li><span style='background:rgb(235,2,2);'></span>1.6-2</li>
+    <li><span style='background:rgb(196,2,2);'></span>2.1-2.5</li>
+	<li><span style='background:rgb(157,2,2);'></span>2.6-3</li>
+    <li><span style='background:rgb(118,1,1);'></span>3.1-3.5</li>
+    <li><span style='background:rgb(79,1,1);'></span>3.6+</li>
+</ul>
+</div>
+</div>
+</div>
+<br></br>
+<p>The data here is now much more evenly spread. Even still, the counties missing weather stations in America’s heartland give a skewed perception. But as far as I can tell, this is the best workaround for my data set, riddled as it is with data bias.</p>
+<p>Given this map, if I had to venture a guess at where people might be most likely to believe in global warming (given only their subjective experience), I’d point toward North Texas, New Mexico or Arizona. </p>
+<br></br>
+<div class="cold-section">
+<h2>Let's be real, nobody likes it cold.</h2>
+<div class='my-legend'>
+<div class='legend-title'>Record-Breaking Cold Days Since 2000 per Weather Station</div>
+<div class='legend-scale'>
+<ul class='legend-labels'>
+ <li><span style='background:#d8d8d8;'></span>0</li>
+    <li><span style='background:rgb(158,202,225);'></span>0.1-0.5</li>
+    <li><span style='background:rgb(107,174,214);'></span>0.6-1</li>
+    <li><span style='background:rgb(66,146,198);'></span>1.1-1.5</li>
+    <li><span style='background:rgb(33,113,181);'></span>1.6-2</li>
+    <li><span style='background:rgb(8,81,156);'></span>3.1-3.5</li>
+	<li><span style='background:rgb(8,48,107);'></span>2.6-3</li>
+    <li><span style='background:rgb(6,37,83);'></span>3.1-3.5</li>
+    <li><span style='background:rgb(4,27,60);'></span>3.6+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<p>There’s something to be said about not trying to pull noise from static, and I honestly can’t tell if meaningful data could be gained from this map. </p>
+<p>Theoretically, if the USA weather stations were more evenly distributed, and if I was pulling from a larger dataset (ex. Days within 5 degrees of the coldest day on record), this map would be more meaningful and useful. But for now, I don’t think it fulfills the goal of my project.</p>
+
+
+
+
+
+<!-- note you need to load these only once -->
+ 
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+ 
+ 
+ 
+<script>
+ 
+// this applies to BOTH
+var width = 960,
+height = 500;
+ 
+var path = d3.geo.path();
+ 
+ 
+// this is code for the COLD map --------------
+ 
+var rateById = d3.map();
+ 
+var quantize = d3.scale.quantize()
+.domain([0, 4])
+.range(d3.range(8).map(function(i) { return "q" + i + "-9"; }));
+ 
+var coldSvg = d3.select(".cold-section").append("svg")
+.attr("width", width)
+.attr("height", height);
+ 
+// hot map
+var hotRateById = d3.map();
+ 
+var hotQuantize = d3.scale.quantize()
+.domain([0, 4])
+.range(d3.range(8).map(function(i) { return "hq" + i + "-9"; }));
+ 
+var hotSvg = d3.select(".hot-section").append("svg")
+.attr("width", width)
+.attr("height", height);
+ 
+ 
+queue()
+.defer(d3.json, "us.json")
+.defer(d3.tsv, "cold-data.tsv", function(d) { rateById.set(d.id, +d.rate); })
+.defer(d3.tsv, "warm-data.tsv", function(d) { hotRateById.set(d.id, +d.rate); })
+.await(ready);
+ 
+// this function fires ONCE, once all your data is loaded.
+function ready(error, us) {
+ 
+ 
+// make a cold map -----
+coldSvg.append("g")
+.attr("class", "counties")
+.selectAll("path")
+.data(topojson.feature(us, us.objects.counties).features)
+.enter().append("path")
+.attr("class", function(d) { return quantize(rateById.get(d.id)); })
+.attr("d", path);
+ 
+coldSvg.append("path")
+.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+.attr("class", "states")
+.attr("d", path);
+ 
+ 
+// make a hot map
+hotSvg.append("g")
+.attr("class", "counties")
+.selectAll("path")
+.data(topojson.feature(us, us.objects.counties).features)
+.enter().append("path")
+.attr("class", function(d) { return hotQuantize(hotRateById.get(d.id)); })
+.attr("d", path);
+ 
+hotSvg.append("path")
+.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+.attr("class", "states")
+.attr("d", path);
+ 
+}
+ 
+ 
+ 
+ 
+ 
+// var coldrateById = d3.map();
+ 
+// var quantize = d3.scale.quantize()
+// .domain([0, 54])
+// .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+ 
+// var path = d3.geo.path();
+ 
+// var svg = d3.select("body").append("svg")
+// .attr("width", width)
+// .attr("height", height);
+ 
+// queue()
+// .defer(d3.json, "us.json")
+// .defer(d3.tsv, "unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
+// .await(ready);
+ 
+// function ready(error, us) {
+// svg.append("g")
+// .attr("class", "counties")
+// .selectAll("path")
+// .data(topojson.feature(us, us.objects.counties).features)
+// .enter().append("path")
+// .attr("class", function(d) { return quantize(rateById.get(d.id)); })
+// .attr("d", path);
+ 
+// svg.append("path")
+// .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+// .attr("class", "states")
+// .attr("d", path);
+// }
+ 
+ 
+ 
+ 
+ 
+ 
+</script>
+</body>

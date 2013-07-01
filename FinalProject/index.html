@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+/*whole page*/
+body {
+width:900px;
+margin:20px auto;
+font-family: georgia, sans-serif;
+font-size:15px;
+line-height:1.4em;
+}
+h2{
+    text-align:center;
+}
+p{
+    padding-left:10px;
+}
+ 
+.readin {
+width:900px;
+}
+/* this css applies to BOTH maps*/
+
+
+.states {
+fill: none;
+stroke: #fff;
+stroke-linejoin: round;
+}
+ 
+.counties {
+fill:#f0f0f0;
+}
+ 
+.legend-title {
+text-align: left;
+margin-bottom: 8px;
+font-weight: bold;
+font-size: 90%;
+text-align:center;
+}
+.legend-scale ul {
+margin: 0;
+margin-left: 160px;
+float: left;
+list-style: none;
+}
+.legend-scale ul li {
+display: block;
+float: left;
+width: 50px;
+margin-bottom: 6px;
+text-align: center;
+font-size: 80%;
+list-style: none;
+}
+ul.legend-labels li span {
+display: block;
+float: left;
+height: 15px;
+width: 50px;
+}
+.legend-source {
+font-size: 70%;
+color: #999;
+clear: both;
+}
+
+/*COLD colors*/
+.cold-section .q0-9 { fill:rgb(158,202,225); }
+.cold-section .q1-9 { fill:rgb(107,174,214); }
+.cold-section .q2-9 { fill:rgb(66,146,198); }
+.cold-section .q3-9 { fill:rgb(33,113,181); }
+.cold-section .q4-9 { fill:rgb(8,81,156); }
+.cold-section .q5-9 { fill:rgb(8,48,107); }
+.cold-section .q6-9 { fill:rgb(6,37,83); }
+.cold-section .q7-9 { fill:rgb(4,27,60); }
+.cold-section .q8-9 { fill:rgb(3,16,36); }
+ 
+/*HOT colors*/
+.hq0-9 { fill:rgb(254,140,140); }
+.hq1-9 { fill:rgb(253,63,63); }
+.hq2-9 { fill:rgb(253,24,24); }
+.hq3-9 { fill:rgb(235,2,2); }
+.hq4-9 { fill:rgb(196,2,2); }
+.hq5-9 { fill:rgb(157,2,2); }
+.hq6-9 { fill:rgb(118,1,1); }
+.hq7-9 { fill:rgb(79,1,1); }
+.hq8-9 { fill:rgb(41,0,0); }
+
+ 
+</style>
+ 
+<body>
+ <br></br>
+<h1 style="text-align:center;">Record-Breaking Hot and Cold Days Across the USA</h1>
+<h2>Or, “<em>How I learned to stop worrying and love the data</em>.”</h2>
+<h6 class="byline" align="right">by William Herkewitz</h6>
+<p>Ever hear someone bewail global warming on a hot day? What about on a cold one?</p>
+<p>You’d be hard pressed to name a science that’s more by troubled by people’s fickle experiences than <strong>climate science</strong>. (If you <em>can</em> name one, please say it out loud in class and shame me during my presentation) The average person’s belief in global warming has far more to do with their political beliefs and subjective experiences than how well they’ve been keeping up with the scientific literature</p>
+<p>For my data project, I thought I’d map the record-breaking high and low temperatures across the states. I had hoped to create a tool that, while not showing any scientific relation to global warming (which is far more complicated than, “We’ve had a lot of hot days, the earth must be warming!”), might map out an area where public belief in global warming would likely to be either doubtful or certain. </p>
+<p>Below are two maps that chart the number of record hot and cold days (from the approximately 11,000 nationwide weather stations) since 2000 across the USA.</p>
+
+
+<div class="hot-section">
+<h2>Some like it Hot</h2>
+<div class='my-legend'>
+<div class='legend-title'>Record-Breaking Hot Days Since 2000</div>
+<div class='legend-scale'>
+<ul class='legend-labels'>
+    <li><span style='background:#d8d8d8;'></span>0</li>
+    <li><span style='background:rgb(254,140,140);'></span>1-4</li>
+    <li><span style='background:rgb(253,63,63);'></span>5-8</li>
+    <li><span style='background:rgb(253,24,24);'></span>9-12</li>
+    <li><span style='background:rgb(235,2,2);'></span>13-16</li>
+    <li><span style='background:rgb(196,2,2);'></span>17-20</li>
+	<li><span style='background:rgb(157,2,2);'></span>21-24</li>
+    <li><span style='background:rgb(118,1,1);'></span>25-28</li>
+    <li><span style='background:rgb(79,1,1);'></span>29-32</li>
+    <li><span style='background:rgb(41,0,0);'></span>33+</li>
+</ul>
+</div>
+</div>
+</div>
+<br></br>
+<p>Whoa there, Arizona. Somebody's been getting some sun.</p>
+<p>Based on this map, it looks a lot like most of the record hot days have been spread across the Southwest and Northwest. Parts of northern New England also look a little burnt.</p>
+<p>The Residents of Kentucky meanwhile–though notorious for their staunch support of science-based evidence–might have more reason to doubt claims of global warming.</p>
+<br></br>
+<div class="cold-section">
+<h2>Some like it... Cold???</h2>
+<div class='my-legend'>
+<div class='legend-title'>Record-Breaking Cold Days Since 2000</div>
+<div class='legend-scale'>
+<ul class='legend-labels'>
+ <li><span style='background:#d8d8d8;'></span>0</li>
+    <li><span style='background:rgb(158,202,225);'></span>1-4</li>
+    <li><span style='background:rgb(107,174,214);'></span>5-8</li>
+    <li><span style='background:rgb(66,146,198);'></span>9-12</li>
+    <li><span style='background:rgb(33,113,181);'></span>13-16</li>
+    <li><span style='background:rgb(8,81,156);'></span>17-20</li>
+	<li><span style='background:rgb(8,48,107);'></span>21-24</li>
+    <li><span style='background:rgb(6,37,83);'></span>25-28</li>
+    <li><span style='background:rgb(4,27,60);'></span>29-32</li>
+    <li><span style='background:rgb(3,16,36);'></span>33+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<p>Two things here are immediately noticeable. </p>
+<p>First, there’s been a lot fewer record-breaking cold days than hot ones. Again, this doesn’t say anything definite about global warming, per se (although it does deal a pretty hard blow to the radical climate-science splinter group: the ‘global-cooling’ proponents). </p>
+<p>Second, the record cold temperature days seems spread across roughly the same areas as the record hot days. Again we see a lot of records over the Southwest, Northwest, and northern New England. And the south and Midwest seem relatively devoid of new cold temperature records. Does this mean all the temperature (hot <em>and</em> cold) variation is happening in the same places</p>
+<p>Or is something fishy going on?</p>
+
+
+
+
+<!-- note you need to load these only once -->
+ 
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+ 
+ 
+ 
+<script>
+ 
+// this applies to BOTH
+var width = 960,
+height = 500;
+ 
+var path = d3.geo.path();
+ 
+ 
+// this is code for the COLD map --------------
+ 
+var rateById = d3.map();
+ 
+var quantize = d3.scale.quantize()
+.domain([0, 37])
+.range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+ 
+var coldSvg = d3.select(".cold-section").append("svg")
+.attr("width", width)
+.attr("height", height);
+ 
+// hot map
+var hotRateById = d3.map();
+ 
+var hotQuantize = d3.scale.quantize()
+.domain([0, 37])
+.range(d3.range(9).map(function(i) { return "hq" + i + "-9"; }));
+ 
+var hotSvg = d3.select(".hot-section").append("svg")
+.attr("width", width)
+.attr("height", height);
+ 
+ 
+queue()
+.defer(d3.json, "us.json")
+.defer(d3.tsv, "cold-data.tsv", function(d) { rateById.set(d.id, +d.rate); })
+.defer(d3.tsv, "warm-data.tsv", function(d) { hotRateById.set(d.id, +d.rate); })
+.await(ready);
+ 
+// this function fires ONCE, once all your data is loaded.
+function ready(error, us) {
+ 
+ 
+// make a cold map -----
+coldSvg.append("g")
+.attr("class", "counties")
+.selectAll("path")
+.data(topojson.feature(us, us.objects.counties).features)
+.enter().append("path")
+.attr("class", function(d) { return quantize(rateById.get(d.id)); })
+.attr("d", path);
+ 
+coldSvg.append("path")
+.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+.attr("class", "states")
+.attr("d", path);
+ 
+ 
+// make a hot map
+hotSvg.append("g")
+.attr("class", "counties")
+.selectAll("path")
+.data(topojson.feature(us, us.objects.counties).features)
+.enter().append("path")
+.attr("class", function(d) { return hotQuantize(hotRateById.get(d.id)); })
+.attr("d", path);
+ 
+hotSvg.append("path")
+.datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+.attr("class", "states")
+.attr("d", path);
+ 
+}
+ 
+ 
+ 
+ 
+ 
+// var coldrateById = d3.map();
+ 
+// var quantize = d3.scale.quantize()
+// .domain([0, 54])
+// .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+ 
+// var path = d3.geo.path();
+ 
+// var svg = d3.select("body").append("svg")
+// .attr("width", width)
+// .attr("height", height);
+ 
+// queue()
+// .defer(d3.json, "us.json")
+// .defer(d3.tsv, "unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
+// .await(ready);
+ 
+// function ready(error, us) {
+// svg.append("g")
+// .attr("class", "counties")
+// .selectAll("path")
+// .data(topojson.feature(us, us.objects.counties).features)
+// .enter().append("path")
+// .attr("class", function(d) { return quantize(rateById.get(d.id)); })
+// .attr("d", path);
+ 
+// svg.append("path")
+// .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+// .attr("class", "states")
+// .attr("d", path);
+// }
+ 
+ 
+ 
+ 
+ 
+ 
+</script>
+</body>
